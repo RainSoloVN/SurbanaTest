@@ -122,3 +122,13 @@ The application will be available at `http://localhost:3000`.
 
 - **Delete Location**
   - **DELETE** `/location/:id`
+
+
+## Data Samples
+
+### Sample Building Data
+![Sample Building Data](path/to/your/building-sample-image.png)
+
+### Sample Location Data
+![Sample Location Data](path/to/your/location-sample-image.png)
+
