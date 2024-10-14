@@ -127,8 +127,10 @@ The application will be available at `http://localhost:3000`.
 ## Data Samples
 
 ### Sample Building Data
-![Sample Building Data](path/to/your/building-sample-image.png)
+
+<img width="665" alt="Screenshot 2024-10-14 at 14 22 56" src="https://github.com/user-attachments/assets/391bcd46-5df5-4050-9b70-09f4685721e9">
 
 ### Sample Location Data
-![Sample Location Data](path/to/your/location-sample-image.png)
+
+<img width="1079" alt="Screenshot 2024-10-14 at 14 16 43" src="https://github.com/user-attachments/assets/c20fcdc6-247d-452e-8264-0e7324f5b039">
 
