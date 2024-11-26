@@ -69,7 +69,8 @@ export class LocationService {
 
     return this.locationRepository.save(location);
   }
-
+  // A cha của B, B cha của C, C là cha của D
+  // update A có parent là D
   async update(id: number, updateLocationDto: UpdateLocationDto): Promise<Location> {
     const dateNow = common.dateNow();
 
@@ -124,11 +125,35 @@ export class LocationService {
       if (!parent) {
         throw new Error('Parent location not found');
       }
+
+      // const ancestors = await this.locationRepository.findAncestors(location);
+      // const isAncestor = ancestors.find(a => a.id == parent.id);
+      
+      // if(isAncestor) {
+      //   throw new Error('The parenId is not valid. It was a ancestor bafore');
+      // }
+
+      const ancestors: Location[] = [];
+      await this.findAncestors(location, ancestors);
+
+      const isAncestor = ancestors?.find(a => a.id == parent.id);
+      
+      if(isAncestor) {
+        throw new Error('The parenId is not valid. It was a ancestor bafore');
+      }
+
       location.parent = parent;
     } else {
       location.parent = null;
     }
 
     return location;
+  }
+
+  findAncestors = async(location: Location, ancestors: Location[]) => {
+    if(location && location.parent) {
+      ancestors.push(location.parent);
+      this.findAncestors(location.parent, ancestors);
+    }
   }
 }
